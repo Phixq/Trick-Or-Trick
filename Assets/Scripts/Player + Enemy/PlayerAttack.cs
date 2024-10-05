@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private WeaponManager weaponManager;
     private Animator animator;
 
     public Transform attackPoint;
@@ -19,7 +18,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
-        weaponManager = GetComponent<WeaponManager>();
         animator = GetComponent<Animator>();
     }
 
@@ -27,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            if (weaponManager.IsWeaponDrawn() && Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
