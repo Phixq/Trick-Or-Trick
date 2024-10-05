@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7229bc5707e4e4ea5c8d4f1e50ec43, type: 3}
+  m_Name: Done
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'Alright, he may or may not have a family...
+
+    and is fighting against his
+    will, but just ignore that!'
+  - 'Go ahead, kill em.
+
+    Once you do that, you can take our survey for the feedback!'
+  reponses:
+  - responseText: Okay
+    dialogueObject: {fileID: 11400000, guid: 2d4b80e81cb601f439eb9c5e4dd060da, type: 2}
