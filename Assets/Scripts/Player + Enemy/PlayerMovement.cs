@@ -16,24 +16,28 @@ public class PlayerMovement : MonoBehaviour
     private float move;
     private bool isFacingRight = true;
 
-    public float speed; // Walking speed
-    public float jump;
-    public float runSpeed; // Speed when holding Shift
-
-    public Vector2 boxSize;
-    public float castDistance;
-    public LayerMask groundLayer;
+    public float speed;         // Walking speed
+    public float jumpForce;     // Adjusted jump force
+    public float runSpeed;      // Speed when holding Shift
+    public float gravityScale = 5f;  // Multiplier for gravity during jump (when not holding jump)
 
     private float currentSpeed;
-    private bool isJumping; // Tracks if the player is currently jumping
+    private bool isJumping;     // Tracks if the player is currently jumping
     private bool isStunned = false; // Tracks if the player is stunned
     private float stunDuration = 1f; // Duration of the stun effect
+
+    public int maxJumps = 2;    // Maximum jumps allowed (for double/triple jumps)
+    private int jumpCount;      // Tracks how many jumps have been used
+
+    public float jumpCooldown = 0.2f;  // Cooldown between jumps
+    private bool jumpOnCooldown = false;  // Tracks if jump is on cooldown
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Initializes SpriteRenderer
+        jumpCount = maxJumps; // Initialize jump count
     }
 
     void Update()
@@ -60,14 +64,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Set the "isRunning" parameter based on any movement input
-        if (Mathf.Abs(move) > 0)
-        {
-            animator.SetBool("isRunning", true); // Play running animation when moving
-        }
-        else
-        {
-            animator.SetBool("isRunning", false); // Switch to idle animation when not moving
-        }
+        animator.SetBool("isRunning", Mathf.Abs(move) > 0);
 
         // Set velocity parameters for smooth transitions
         animator.SetFloat("xVelocity", Mathf.Abs(move) * currentSpeed);
@@ -84,38 +81,49 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-                Interactable?.Interact(this);
+            Interactable?.Interact(this);
         }
     }
 
     private void HandleJumping()
     {
-        // Check if the player is grounded
-        bool isGrounded = IsGrounded();
-
-        if (isGrounded && !isJumping)
+        // Apply gravity scaling when the player is not holding the jump button
+        if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
-            animator.SetBool("isJumping", false); // Stop jump animation when grounded
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (gravityScale - 1) * Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        // Jump cooldown management
+        if (jumpOnCooldown) return;
+
+        // If player presses jump key and still has jumps left
+        if (Input.GetButtonDown("Jump") && jumpCount > 0)
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jump * 10));
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce); // Apply jump force
             isJumping = true; // Start the jump
             animator.SetBool("isJumping", true); // Trigger jump animation
+            jumpCount--; // Decrease jump count
+            StartCoroutine(JumpCooldown()); // Apply jump cooldown
         }
 
-        // Update the jump state once player is in the air
+        // Update the jump state when player starts falling
         if (isJumping && rb.velocity.y <= 0)
         {
             isJumping = false; // Player is falling down, so stop jumping
         }
+
+        // Reset the jump count when the player lands
+        if (rb.velocity.y == 0)
+        {
+            jumpCount = maxJumps; // Reset jumps when on ground
+        }
     }
 
-    private bool IsGrounded()
+    private IEnumerator JumpCooldown()
     {
-        // Checking if the player is grounded
-        return Physics2D.BoxCast(transform.position, boxSize, 0, Vector2.down, castDistance, groundLayer);
+        jumpOnCooldown = true;
+        yield return new WaitForSeconds(jumpCooldown);
+        jumpOnCooldown = false;
     }
 
     private void FlipSprite()
@@ -143,11 +151,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
             animator.SetFloat("yVelocity", rb.velocity.y);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
 
     public void TakeDamage(int damage)
