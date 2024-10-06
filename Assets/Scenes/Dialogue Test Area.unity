@@ -1728,7 +1728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188623878912624688, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: effectDuration
-      value: 6.58
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1188623878912624688, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: attackEffectPrefab
