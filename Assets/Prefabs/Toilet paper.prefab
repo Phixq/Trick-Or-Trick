@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5026366128051425756}
   - component: {fileID: 1524262576347702176}
   - component: {fileID: 8306751892720974864}
+  - component: {fileID: 8685223484232035637}
   m_Layer: 0
   m_Name: Toilet paper
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3582422443354520274}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.2265518, w: 0.9739992}
-  m_LocalPosition: {x: 0.49, y: 0.47, z: 0}
-  m_LocalScale: {x: 0.037, y: 0.037, z: 0.37}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5026366128051425756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -145,6 +146,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000076293945, y: -0.0000076293945}
+  m_Offset: {x: 0.2262168, y: 0.0837819}
   serializedVersion: 2
-  m_Radius: 6.4000006
+  m_Radius: 0.5856766
+--- !u!114 &8685223484232035637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582422443354520274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5887d1ecff97844aae0f2ac07e19af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4.5
