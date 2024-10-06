@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
-/*public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     public float speed = 2f;
     public float chaseRange = 5f;
@@ -206,8 +207,9 @@ using UnityEngine;
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(startPosition, roamRadius);  // Roam radius
     }
-}*/
-public class EnemyAI : MonoBehaviour
+}
+
+/*public class EnemyAI : MonoBehaviour
 {
     public float speed = 2f;
     public float chaseRange = 5f;
@@ -231,7 +233,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool isIdle = false;
 
-    public EnemyManager enemyManager;  // Reference to the EnemyManager
+    //public EnemyManager enemyManager;  // Reference to the EnemyManager
 
     void Start()
     {
@@ -363,4 +365,4 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
-}
+}*/

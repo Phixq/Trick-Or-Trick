@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+/*public class EnemyManager : MonoBehaviour
 {
     public GameObject flashingArrowUI;  // Reference to the FlashingArrowUI
     private FlashingArrowUI flashingArrowScript;
@@ -36,4 +36,4 @@ public class EnemyManager : MonoBehaviour
             flashingArrowScript.StartFlashing();  // Start the flashing UI effect
         }
     }
-}
+}*/

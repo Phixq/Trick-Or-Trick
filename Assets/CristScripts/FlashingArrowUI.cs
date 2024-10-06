@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;  // Required for UI components
 using System.Collections;
 
-/*public class FlashingArrowUI : MonoBehaviour
+public class FlashingArrowUI : MonoBehaviour
 {
     private Image arrowImage;
 
@@ -22,8 +22,8 @@ using System.Collections;
             yield return new WaitForSeconds(flashDuration);
         }
     }
-}*/
-public class FlashingArrowUI : MonoBehaviour
+}
+/*public class FlashingArrowUI : MonoBehaviour
 {
     public float flashSpeed = 1f;  // Speed of flashing
     private Image image;
@@ -61,5 +61,5 @@ public class FlashingArrowUI : MonoBehaviour
             }
         }
     }
-}
+}*/
 
