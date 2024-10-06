@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    public PlayerAttack playerAttack; 
 
     private float move;
     private bool isFacingRight = true;
@@ -131,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         if (move > 0 && !isFacingRight || move < 0 && isFacingRight)
         {
             Flip();
+            playerAttack.SetFlippedDirection(playerAttack.isFacingRight);
         }
     }
 

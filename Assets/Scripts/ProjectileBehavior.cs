@@ -10,7 +10,7 @@ public class ProjectileBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.right * Time.deltaTime * speed;
+        //transform.position += transform.right * Time.deltaTime * speed;
         DestroyObject();
     }
 
