@@ -1,26 +1,44 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public List<GameObject> enemies;  // List to track all enemies in the scene
+    public List<EnemyAI> enemies;  // List of all enemies in the scene
     public FlashingArrowUI flashingArrow;  // Reference to the FlashingArrowUI script
+
+    private int totalEnemies;
 
     void Start()
     {
-        // Add all enemies to the list at the start (assuming they are tagged as "Enemy")
-        enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+        totalEnemies = enemies.Count;
+        flashingArrow.StopFlashing();  // Make sure arrow is not flashing initially
     }
 
-    // Call this method whenever an enemy dies
-    public void EnemyDied(GameObject enemy)
+    public void EnemyDied(EnemyAI enemy)
     {
-        enemies.Remove(enemy);
+        enemies.Remove(enemy);  // Remove the enemy from the list when it dies
 
-        // If no enemies remain, show the flashing arrow
         if (enemies.Count == 0)
         {
-            flashingArrow.StartFlashing();  // Start flashing the arrow
+            AllEnemiesDead();
         }
+    }
+
+    private void AllEnemiesDead()
+    {
+        // Start flashing the arrow when all enemies are dead
+        flashingArrow.StartFlashing();
+    }
+
+    // Optional: If you want the arrow to stop flashing when moving to the next scene, call this method
+    public void StopArrowFlashing()
+    {
+        flashingArrow.StopFlashing();
+    }
+
+    internal void EnemyDied(GameObject gameObject)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;  // For loading the next scene
 
-public class FlashingArrowUI : MonoBehaviour
+/*public class FlashingArrowUI : MonoBehaviour
 {
     private Image arrowImage;
     public float flashDuration = 0.5f;
@@ -44,5 +44,39 @@ public class FlashingArrowUI : MonoBehaviour
     {
         StopFlashing();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  // Load the next scene
+    }
+}*/
+
+public class FlashingArrowUI : MonoBehaviour
+{
+    private Image arrowImage;
+    public float flashDuration = 0.5f;
+
+    private void Start()
+    {
+        arrowImage = GetComponent<Image>();
+        arrowImage.enabled = false;  // Initially, hide the arrow
+    }
+
+    // Start flashing the arrow when called
+    public void StartFlashing()
+    {
+        StartCoroutine(FlashArrow());
+    }
+
+    // Stop flashing the arrow when called
+    public void StopFlashing()
+    {
+        StopCoroutine(FlashArrow());
+        arrowImage.enabled = false;  // Hide the arrow
+    }
+
+    IEnumerator FlashArrow()
+    {
+        while (true)
+        {
+            arrowImage.enabled = !arrowImage.enabled;
+            yield return new WaitForSeconds(flashDuration);
+        }
     }
 }

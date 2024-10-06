@@ -1,23 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
     public float speed = 2f;
     public float chaseRange = 5f;
-
     public float attackRange = 1f;
-    public float attackDamage = 20;
+    public float attackDamage = 20f;
     public float attackDelay = 1.5f;
-
     public float roamRadius = 3f;
     public float roamDelay = 3f;
+    public EnemyManager enemyManager;  // Reference to the EnemyManager
+    public float health = 100f;
 
     private Animator animator;
     private GameObject player;
     private Vector2 roamPosition;
-
     private float attackTimer = 0f;
     private float roamTimer = 0f;
     private bool isRoaming = true;
@@ -28,7 +26,6 @@ public class EnemyAI : MonoBehaviour
 
     private bool isStunned = false; // Tracks if the enemy is stunned
     private float stunDuration = 1f; // Duration of the stun effect
-
     private bool isIdle = false;
 
     void Start()
@@ -188,9 +185,23 @@ public class EnemyAI : MonoBehaviour
         isStunned = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        StartCoroutine(StunCoroutine());
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (enemyManager != null)
+        {
+            enemyManager.EnemyDied(this);  // Notify the EnemyManager that this enemy has died
+        }
+
+        Destroy(gameObject);  // Destroy the enemy GameObject
     }
 
     // Visualize attack and chase distances in editor
