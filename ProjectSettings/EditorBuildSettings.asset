@@ -12,6 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 38afe8154c44d4b45bd9a947cf84882c
   - enabled: 1
-    path: Assets/Scenes/Dialogue Test Area.unity
+    path: Assets/Scenes/MM2.unity
+    guid: f252d5715b9b3634385d289d5ae80d36
+  - enabled: 1
+    path: Assets/Scenes/MM3.unity
+    guid: 9f40768b207913b4fa9a1aeec68c121b
+  - enabled: 1
+    path: Assets/Scenes/MM4.unity
+    guid: 678c656fc8911784ba92dfb5d84c6a0d
+  - enabled: 1
+    path: Assets/Scenes/MM5.unity
+    guid: 7392966efb5b42a47be75844259b4adf
+  - enabled: 1
+    path: Assets/Scenes/MM6.unity
+    guid: 4587a9f680e63074b919402f8ed00217
+  - enabled: 1
+    path: Assets/Scenes/MM7.unity
+    guid: a212761bf88ec3145afed7c2c0e675fa
+  - enabled: 1
+    path: Assets/Scenes/Game Scene.unity
     guid: f0a664e745e239a499f4d82a3f39bac4
   m_configObjects: {}

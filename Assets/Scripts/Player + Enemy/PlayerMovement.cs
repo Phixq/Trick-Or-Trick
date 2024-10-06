@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private DialogueUI dialogueUI;
-
-    public DialogueUI DialogueUI => dialogueUI;
-    public IInteractable Interactable { get; set; }
-
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    public PlayerAttack playerAttack; 
 
     private float move;
     private bool isFacingRight = true;
@@ -90,11 +86,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Applying movement
         rb.velocity = new Vector2(move * currentSpeed, rb.velocity.y);
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Interactable?.Interact(this);
-        }
     }
 
     private void HandleJumping()
@@ -143,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if (move > 0 && !isFacingRight || move < 0 && isFacingRight)
         {
             Flip();
+            playerAttack.SetFlippedDirection(playerAttack.isFacingRight);
         }
     }
 
