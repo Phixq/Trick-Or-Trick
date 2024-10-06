@@ -42,6 +42,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        if (rb.velocity.y != 0f)
+        {
+            isJumping = true;
+            animator.SetBool("isJumping", true); // Trigger jump animation
+        }
+        else
+        {
+            isJumping = false;
+            animator.SetBool("isJumping", false); // Trigger jump animation
+        }
+        
         if (isStunned)
         {
             // If stunned, do not process movement or jumping
