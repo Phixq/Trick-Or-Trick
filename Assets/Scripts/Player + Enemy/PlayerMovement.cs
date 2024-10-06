@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private DialogueUI dialogueUI;
-
-    public DialogueUI DialogueUI => dialogueUI;
-    public IInteractable Interactable { get; set; }
-
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -60,8 +55,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (dialogueUI.IsOpen) return;
-
         // Gets horizontal input
         move = Input.GetAxis("Horizontal");
 
@@ -90,11 +83,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Applying movement
         rb.velocity = new Vector2(move * currentSpeed, rb.velocity.y);
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Interactable?.Interact(this);
-        }
     }
 
     private void HandleJumping()
