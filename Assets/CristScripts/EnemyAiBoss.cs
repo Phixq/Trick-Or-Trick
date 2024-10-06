@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyAIBoss : MonoBehaviour
 {
+    public GameObject fireProjectilePrefab; // Assign the fire projectile prefab in the Inspector
+    public Transform firePoint; // Assign the fire point (a position where the projectile is fired from)
+    public float projectileSpeed = 5f; // Speed of the projectile
+
+    private GameObject player;
+    private float attackTimer = 0f;
+    public float attackDelay = 2f; // Delay between attacks
     public float speed = 2f;
     public float chaseRange = 8f;   // Larger than melee range for chasing
 
@@ -11,17 +18,13 @@ public class EnemyAIBoss : MonoBehaviour
     public float rangedAttackRange = 6f;  // Fireball range
     public float meleeAttackDamage = 20;
     public float rangedAttackDamage = 10;
-    public float attackDelay = 1.5f;
 
     public float roamRadius = 3f;
     public float health = 100f;
 
     public GameObject fireProjectile; // Assign in the inspector (the fireball projectile prefab)
-    public Transform firePoint;       // Where the projectile will be fired from
-
+    
     private Animator animator;
-    private GameObject player;
-    private float attackTimer = 0f;
     private bool isFacingRight = true;
     private PlayerHP playerHP;
     private Vector2 startPosition;
@@ -110,6 +113,25 @@ public class EnemyAIBoss : MonoBehaviour
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             Vector2 direction = (player.transform.position - firePoint.position).normalized;
             rb.velocity = direction * 10f;  // Set projectile speed
+        }
+    }
+    
+    void FireProjectile()
+    {
+        if (fireProjectilePrefab != null && player != null)
+        {
+            // Create a new fire projectile at the firePoint position
+            GameObject projectile = Instantiate(fireProjectilePrefab, firePoint.position, firePoint.rotation);
+
+            // Calculate the direction to the player
+            Vector2 direction = (player.transform.position - firePoint.position).normalized;
+
+            // Set the projectile's velocity towards the player
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = direction * projectileSpeed;
+            }
         }
     }
 
