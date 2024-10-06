@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (dialogueUI.IsOpen) return;
+        //if (dialogueUI.IsOpen) return;
 
         // Gets horizontal input
         move = Input.GetAxis("Horizontal");

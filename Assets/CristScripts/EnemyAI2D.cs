@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyState
+/*public enum EnemyState
 {
     Patrolling,  // When the enemy is patrolling between waypoints
     Hostile,     // When the enemy is chasing the player
@@ -151,4 +151,4 @@ public class EnemyAI2D : MonoBehaviour
             currentState = EnemyState.Hostile;
         }
     }
-}
+}*/
