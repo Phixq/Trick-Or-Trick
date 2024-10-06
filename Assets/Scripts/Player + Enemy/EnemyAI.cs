@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+/*public class EnemyAI : MonoBehaviour
 {
     public float speed = 2f;
     public float chaseRange = 5f;
@@ -205,5 +205,162 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);  // Chase range
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(startPosition, roamRadius);  // Roam radius
+    }
+}*/
+public class EnemyAI : MonoBehaviour
+{
+    public float speed = 2f;
+    public float chaseRange = 5f;
+
+    public float attackRange = 1f;
+    public float attackDamage = 20;
+    public float attackDelay = 1.5f;
+
+    public float roamRadius = 3f;
+    public float health = 100f;
+
+    private Animator animator;
+    private GameObject player;
+    private Vector2 roamPosition;
+
+    private float attackTimer = 0f;
+    private bool isFacingRight = false;
+
+    private PlayerHP playerHP;
+    private Vector2 startPosition;
+
+    private bool isIdle = false;
+
+    public EnemyManager enemyManager;  // Reference to the EnemyManager
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerHP = player.GetComponent<PlayerHP>();
+        }
+        startPosition = transform.position;
+        SetNewRoamPosition();
+    }
+
+    void Update()
+    {
+        if (player == null || playerHP == null || playerHP.currentHP <= 0)
+        {
+            StopMovement();
+            return;
+        }
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer <= attackRange)
+        {
+            Attack();
+        }
+        else if (distanceToPlayer <= chaseRange)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            Roam();
+        }
+
+        attackTimer += Time.deltaTime;
+    }
+
+    private void ChasePlayer()
+    {
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+        FlipSprite(direction);
+
+        animator.SetFloat("xVelocity", Mathf.Abs(direction.x));
+        animator.SetBool("isRunning", true);
+        animator.SetBool("isAttacking", false);
+    }
+
+    private void Roam()
+    {
+        if (Vector2.Distance(transform.position, roamPosition) > 0.1f)
+        {
+            Vector2 direction = (roamPosition - (Vector2)transform.position).normalized;
+            transform.position = Vector2.MoveTowards(transform.position, roamPosition, speed * Time.deltaTime);
+
+            FlipSprite(direction);
+
+            animator.SetFloat("xVelocity", Mathf.Abs(direction.x));
+            animator.SetBool("isRunning", true);
+        }
+    }
+
+    private void Attack()
+    {
+        if (attackTimer >= attackDelay)
+        {
+            animator.SetTrigger("Attack");
+            playerHP.TakeDMG(Mathf.RoundToInt(attackDamage));
+            attackTimer = 0f;
+        }
+
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isAttacking", true);
+    }
+
+    private void StopMovement()
+    {
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isAttacking", false);
+    }
+
+    private void FlipSprite(Vector2 direction)
+    {
+        if (direction.x > 0 && !isFacingRight || direction.x < 0 && isFacingRight)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1f;
+            transform.localScale = scale;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Start Flashing");
+        if (enemyManager != null)
+        {
+            enemyManager.EnemyDied(this);  // Notify the EnemyManager that this enemy has died
+        }
+
+        Destroy(gameObject);  // Destroy the enemy GameObject
+    }
+
+    // Set new roam position after roaming
+    private void SetNewRoamPosition()
+    {
+        roamPosition = startPosition + new Vector2(
+            Random.Range(-roamRadius, roamRadius),
+            Random.Range(-roamRadius, roamRadius)
+        );
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 }
