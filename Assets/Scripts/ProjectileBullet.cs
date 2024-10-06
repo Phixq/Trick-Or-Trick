@@ -18,7 +18,7 @@ public class ProjectileBullet : MonoBehaviour
     {
      if (Input.GetButtonDown("Fire2"))
         {
-            Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+            Instantiate(ProjectilePrefab, LaunchOffset.position, Quaternion.identity);
         }
 
     }
