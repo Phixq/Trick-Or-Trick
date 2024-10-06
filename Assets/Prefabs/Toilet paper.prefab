@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1524262576347702176}
   - component: {fileID: 8306751892720974864}
   - component: {fileID: 8685223484232035637}
+  - component: {fileID: -5379699708060455501}
   m_Layer: 0
   m_Name: Toilet paper
   m_TagString: Untagged
@@ -73,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 747176179
-  m_SortingLayer: 2
+  m_SortingLayerID: -909062525
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 35cf265ea742bc94cb2697aae29d0f66, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06a18af5bc563c94d96b3f1564efbf4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,4 +162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5887d1ecff97844aae0f2ac07e19af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 5
+  lifetime: 7
+--- !u!114 &-5379699708060455501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582422443354520274}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820efcd1b8416594c90874d01367b8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  lifeTime: 5

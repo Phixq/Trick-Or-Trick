@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BiteAttack
+  m_Name: Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -598,15 +598,11 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1636250775809696657}
     m_Position: {x: 300, y: 350, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 7990797126145697214}
-    m_Position: {x: 440, y: 250, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -1254574721093488728}
   - {fileID: 6636919074676983665}
   - {fileID: 2994177484886000681}
-  - {fileID: 5354695228736755223}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
