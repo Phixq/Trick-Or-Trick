@@ -941,6 +941,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae7090b7d152754cbc1b8915005c33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1271117661}
+  offset: {x: 0, y: 0, z: 0}
+  minX: -50.6
+  maxX: 170
+  minY: -24.8
+  maxY: -12.5
 --- !u!1 &1756958485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8567763425043985351, guid: d19e65c3495e66943896594c154f6062, type: 3}
@@ -1820,11 +1826,11 @@ PrefabInstance:
       objectReference: {fileID: 175575281478962335}
     - target: {fileID: 4960773867406071368, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.4
+      value: -47.5
       objectReference: {fileID: 0}
     - target: {fileID: 4960773867406071368, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.13
+      value: -22.7
       objectReference: {fileID: 0}
     - target: {fileID: 4960773867406071368, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: m_LocalPosition.z

@@ -16,19 +16,31 @@ EditorBuildSettings:
     guid: f252d5715b9b3634385d289d5ae80d36
   - enabled: 1
     path: Assets/Scenes/MM3.unity
-    guid: 9f40768b207913b4fa9a1aeec68c121b
+    guid: bae47e43ff156184a986849ad447682c
   - enabled: 1
     path: Assets/Scenes/MM4.unity
-    guid: 678c656fc8911784ba92dfb5d84c6a0d
+    guid: 41c192ba88a356943be0122cfcb7fdd5
   - enabled: 1
     path: Assets/Scenes/MM5.unity
-    guid: 7392966efb5b42a47be75844259b4adf
+    guid: 6c26cb085ff159a4f9355c164aeb9879
   - enabled: 1
     path: Assets/Scenes/MM6.unity
-    guid: 4587a9f680e63074b919402f8ed00217
+    guid: 8edc4afc74601d449b05a91c5c5d0fc6
   - enabled: 1
     path: Assets/Scenes/MM7.unity
-    guid: a212761bf88ec3145afed7c2c0e675fa
+    guid: 7b1cdf35836d6f84f8904c9db3f97b78
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: bc8d38f332b6fbb45983b5dff95e046b
+  - enabled: 1
+    path: Assets/Scenes/Cutscene 2.unity
+    guid: 887c739c8d07275448a6fa89bfa88046
+  - enabled: 1
+    path: Assets/Scenes/Cutscene 3.unity
+    guid: 922420c57d61e9345867b87a941455c4
+  - enabled: 1
+    path: Assets/Scenes/Cutscene 4.unity
+    guid: e6f7df6ed6d4f7446a3fa20185390b81
   - enabled: 1
     path: Assets/Scenes/Game Scene.unity
     guid: f0a664e745e239a499f4d82a3f39bac4
