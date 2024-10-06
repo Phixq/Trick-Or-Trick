@@ -495,7 +495,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 1ae5045853062a9428e23fb9a1b02918, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3377c0f1ff595874eaf48fca4021623f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4fdf3c07f2e8b504ba598e064e2be4ac, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -751,7 +751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1338, y: 468}
+  m_AnchoredPosition: {x: 1338, y: -430}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856798393
@@ -921,7 +921,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bb74c720d2fa7144b8ac37a79f21cc2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2773aecfba0de341aeb74861ad226ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
