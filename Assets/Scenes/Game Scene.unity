@@ -172,8 +172,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1688518367430588543, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
+      propertyPath: roamDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688518367430588543, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
       propertyPath: chaseRange
-      value: 7.1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1688518367430588543, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
       propertyPath: roamRadius
@@ -182,6 +186,10 @@ PrefabInstance:
     - target: {fileID: 1688518367430588543, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
       propertyPath: attackDelay
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688518367430588543, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
+      propertyPath: attackRange
+      value: 7.17
       objectReference: {fileID: 0}
     - target: {fileID: 1688518367430588543, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
       propertyPath: attackDamage
@@ -201,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3473125147232940594, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
       propertyPath: maxHP
-      value: 120
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 3473125147232940594, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
       propertyPath: barrierController
@@ -1264,6 +1272,14 @@ PrefabInstance:
     - target: {fileID: 6526479548113218496, guid: cea1a7cf4c0d2f847a3d63660e85efa3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821442749269623913, guid: cea1a7cf4c0d2f847a3d63660e85efa3, type: 3}
+      propertyPath: roamDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821442749269623913, guid: cea1a7cf4c0d2f847a3d63660e85efa3, type: 3}
+      propertyPath: roamRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8787851648145585771, guid: cea1a7cf4c0d2f847a3d63660e85efa3, type: 3}
       propertyPath: barrierController
