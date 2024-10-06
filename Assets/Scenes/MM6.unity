@@ -3871,7 +3871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2025370069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4002,7 +4002,7 @@ GameObject:
   - component: {fileID: 2040830337}
   - component: {fileID: 2040830336}
   m_Layer: 5
-  m_Name: Phone Screen
+  m_Name: Phone Screen 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4047,7 +4047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4cdb91c5306b3d24c95d020f681f57df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c4688d6d25a00c41b8119522d244106, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
