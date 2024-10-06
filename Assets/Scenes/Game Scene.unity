@@ -873,7 +873,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -938,9 +938,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1676545997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae7090b7d152754cbc1b8915005c33b, type: 3}
+  m_Script: {fileID: 11500000, guid: 845c3f36c5fb79f4f9116dbfefa31f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1271117661}
+  yOffset: 1
 --- !u!1 &1756958485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8567763425043985351, guid: d19e65c3495e66943896594c154f6062, type: 3}
@@ -1820,7 +1822,7 @@ PrefabInstance:
       objectReference: {fileID: 175575281478962335}
     - target: {fileID: 4960773867406071368, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.4
+      value: -47.1
       objectReference: {fileID: 0}
     - target: {fileID: 4960773867406071368, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: m_LocalPosition.y
