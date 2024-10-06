@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class ProjectileBullet : MonoBehaviour
 {
-    public GameObject ProjectilePrefab;
-    public Transform LaunchOffset;
+    public int projectileDamage = 20; // Set damage value for the projectile
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     if (Input.GetButtonDown("Fire2"))
+        // Check if the projectile hits an object tagged as "Enemy"
+        if (other.CompareTag("Enemy"))
         {
-            Instantiate(ProjectilePrefab, LaunchOffset.position, Quaternion.identity);
-        }
+            // Call the TakeDMG method on the enemy's health script
+            EnemyHP enemyHP = other.GetComponent<EnemyHP>();
+            if (enemyHP != null)
+            {
+                enemyHP.TakeDMG(projectileDamage); // Deal damage to the enemy
+            }
 
+            // Destroy the projectile after hitting the enemy
+            Destroy(gameObject);
+        }
     }
 }
+

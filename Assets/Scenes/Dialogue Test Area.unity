@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &143188332 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6185987570044211380, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
-  m_PrefabInstance: {fileID: 8449387687605145918}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &181530980 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1158343019264642527, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
@@ -916,7 +911,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1097645775002883667, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbafb4e066e72964f99a3d2d39af4d94, type: 3}

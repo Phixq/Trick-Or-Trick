@@ -6,7 +6,6 @@ public class PlayerAttack : MonoBehaviour
 {
     private Animator animator;
 
-    public Transform attackPoint; // Position where the sprite image will appear
     public LayerMask enemyLayers;
 
     public float attackRange = 0.5f; // Range for detecting enemies
@@ -16,6 +15,9 @@ public class PlayerAttack : MonoBehaviour
     private float nextAttackTime = 0f;
 
     public GameObject attackEffectPrefab; // Prefab for the attack sprite image
+    public GameObject projectilePrefab; // Prefab for the projectile
+    public float projectileSpeed = 10f; // Speed of the projectile
+
     public float effectDuration = 0.5f; // Time before the effect disappears
 
     private bool isFacingRight = true; // Track which direction the player is facing
@@ -34,6 +36,12 @@ public class PlayerAttack : MonoBehaviour
                 TeethAttack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+
+            if (Input.GetButtonDown("Fire2")) // Assuming Fire2 is for CandyAttack
+            {
+                CandyAttack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 
@@ -46,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
         ShowAttackEffect();
 
         // Detect enemies in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayers);
 
         // Damage to enemies
         foreach (Collider2D enemy in hitEnemies)
@@ -55,10 +63,35 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void CandyAttack()
+    {
+        // Play an attack animation
+        animator.SetTrigger("CandyAttack");
+
+        // Launch the projectile
+        LaunchProjectile();
+    }
+
+    private void LaunchProjectile()
+    {
+        // Instantiate the projectile
+        GameObject projectileInstance = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+        // Set the projectile's direction
+        Rigidbody2D rb = projectileInstance.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = (isFacingRight ? Vector2.right : Vector2.left) * projectileSpeed; // Move in the direction the player is facing
+        }
+
+        // Optionally, destroy the projectile after a certain time to avoid clutter
+        Destroy(projectileInstance, 3f); // Adjust the duration as needed
+    }
+
     private void ShowAttackEffect()
     {
-        // Instantiate the attack effect at the attackPoint position
-        GameObject attackEffect = Instantiate(attackEffectPrefab, attackPoint.position, Quaternion.identity);
+        // Instantiate the attack effect at the player position
+        GameObject attackEffect = Instantiate(attackEffectPrefab, transform.position, Quaternion.identity);
 
         // Make the effect a child of the player object
         attackEffect.transform.parent = transform;
@@ -79,14 +112,10 @@ public class PlayerAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
     // Example method for updating the player's facing direction
-    // Call this from your movement script if you're already flipping the player sprite
     public void SetFacingDirection(bool facingRight)
     {
         isFacingRight = facingRight;
