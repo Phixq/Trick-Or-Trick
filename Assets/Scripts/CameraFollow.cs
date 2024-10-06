@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
         if (player != null)
         {
             // Get the desired position of the camera
-            Vector3 desiredPosition = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
+            Vector3 desiredPosition = new Vector3(player.position.x + offset.x, transform.position.y + offset.y, offset.z);
 
             // Clamp the camera's X and Y position within the boundaries
             float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
