@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &143188332 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6185987570044211380, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
-  m_PrefabInstance: {fileID: 8449387687605145918}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &181530980 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1158343019264642527, guid: ebda6754a0a0f7541a96f3c1666b9705, type: 3}
@@ -1106,9 +1101,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1188623878912624688, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
+      propertyPath: launchOffset
+      value: 
+      objectReference: {fileID: 1271117661}
+    - target: {fileID: 1188623878912624688, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: effectDuration
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1188623878912624688, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5998388874796341021, guid: 2f4f27122c66eaf479b61facd424788c, type: 3}
     - target: {fileID: 1188623878912624688, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: attackEffectPrefab
       value: 
@@ -1116,11 +1119,15 @@ PrefabInstance:
     - target: {fileID: 3325614635288758814, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: LaunchOffset
       value: 
-      objectReference: {fileID: 143188332}
+      objectReference: {fileID: 1271117661}
     - target: {fileID: 3325614635288758814, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: ProjectilePrefab
       value: 
       objectReference: {fileID: 5998388874796341021, guid: 2f4f27122c66eaf479b61facd424788c, type: 3}
+    - target: {fileID: 3325614635288758814, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 4960773867406071368, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -43
@@ -1198,7 +1205,8 @@ PrefabInstance:
       value: 0.483
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1097645775002883667, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f412f9c64bd37504b8b0400cdbacd1e5, type: 3}

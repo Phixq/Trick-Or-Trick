@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5815699915050572714}
   - component: {fileID: 6638714336167971162}
   - component: {fileID: 1188623878912624688}
-  - component: {fileID: 2110085531115537014}
   - component: {fileID: 4140400931567961187}
   - component: {fileID: 4099132873260410937}
   - component: {fileID: 3325614635288758814}
@@ -197,26 +196,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fb69dfbdfd7684fb218cd7983a2ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 6759756811308589084}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
   attackRange: 4
   attackDMG: 20
   attackRate: 0.65
---- !u!114 &2110085531115537014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458790919718015054}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea568cd6ce987f488f5a2a52003e380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDrawn: 0
+  attackEffectPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 10
+  effectDuration: 0.5
 --- !u!114 &4140400931567961187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa650dd08f6cd141b4b1e4e4c9c65d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 3582422443354520274, guid: c6e375d0b0ce74f4e8b97c8ca7d69793, type: 3}
-  LaunchOffset: {fileID: 6759756811308589084}
+  projectileDamage: 20
 --- !u!1 &1097645775002883667
 GameObject:
   m_ObjectHideFlags: 0
