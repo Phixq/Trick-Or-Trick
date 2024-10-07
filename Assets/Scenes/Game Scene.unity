@@ -1268,6 +1268,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2254537902598924576, guid: d19e65c3495e66943896594c154f6062, type: 3}
+      propertyPath: maxHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739089615707769051, guid: d19e65c3495e66943896594c154f6062, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739089615707769051, guid: d19e65c3495e66943896594c154f6062, type: 3}
+      propertyPath: attackDelay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8567763425043985351, guid: d19e65c3495e66943896594c154f6062, type: 3}
       propertyPath: m_Name
       value: PumpkinBoss
