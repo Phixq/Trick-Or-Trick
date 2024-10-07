@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4812992115247151103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5175664952285714291}
+  m_Layer: 0
+  m_Name: FlamePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5175664952285714291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812992115247151103}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.41, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9150175042847175248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8567763425043985351
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +46,7 @@ GameObject:
   - component: {fileID: 6453352903864217682}
   - component: {fileID: 5537439626362295465}
   - component: {fileID: 2254537902598924576}
+  - component: {fileID: 2739089615707769051}
   m_Layer: 7
   m_Name: Pumpkin
   m_TagString: Enemy
@@ -34,7 +66,9 @@ Transform:
   m_LocalPosition: {x: 159, y: -23.06, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6377361454713488495}
+  - {fileID: 5175664952285714291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &383149972890282296
@@ -189,22 +223,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8567763425043985351}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3ed6226d2d72a145814d528a5727491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  chaseRange: 5
-  attackRange: 1
+  chaseRange: 31.31
+  attackRange: 12
   attackDelay: 1.5
   roamRadius: 3
-  pumpkinHeadPrefab: {fileID: 0}
-  flamethrowerPrefab: {fileID: 0}
-  pumpkinHandOffset: {fileID: 0}
-  flamethrowerOffset: {fileID: 0}
+  pumpkinHeadPrefab: {fileID: 9183151211651891780, guid: 8071cefeb0fe9974f84c5e1c281d247e, type: 3}
+  flamethrowerPrefab: {fileID: 1859766581545355913, guid: cdd372f1c6846ca4cb71700785340baf, type: 3}
+  pumpkinHandOffset: {fileID: 6377361454713488495}
+  flamethrowerOffset: {fileID: 7841487678593292414, guid: cdd372f1c6846ca4cb71700785340baf, type: 3}
   flamethrowerSpeed: 5
   flamethrowerDuration: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &2254537902598924576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,4 +256,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6453352903864217682}
   maxHP: 200
-  currentHP: 0
+  currentHP: -1
+--- !u!114 &2739089615707769051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8567763425043985351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf2e3033e40338428e4ed87ea1e3680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireProjectilePrefab: {fileID: 3582422443354520274, guid: c6e375d0b0ce74f4e8b97c8ca7d69793, type: 3}
+  firePoint: {fileID: 5175664952285714291}
+  projectileSpeed: 5
+  attackDelay: 1.5
+  speed: 2
+  chaseRange: 30
+  meleeAttackRange: 10
+  rangedAttackRange: 25
+  meleeAttackDamage: 20
+  rangedAttackDamage: 10
+  roamRadius: 3
+  health: 200
+  fireProjectile: {fileID: 3582422443354520274, guid: c6e375d0b0ce74f4e8b97c8ca7d69793, type: 3}
+--- !u!1 &8799213966227646269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6377361454713488495}
+  m_Layer: 0
+  m_Name: HeadPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6377361454713488495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799213966227646269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.79, y: 0.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9150175042847175248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
